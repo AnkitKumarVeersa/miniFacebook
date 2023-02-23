@@ -1,4 +1,24 @@
-<h1>
-    <%= current_user.email%>
-</h1>
-<%= link_to "Sign out", destroy_user_session_path, method: :delete%>
+<div style="display: flex; justify-content: space-between;">
+<div><%= current_user.email%></div>
+<div><%= link_to "Create Post", new_post_url, method: :post%></div>
+
+<div><%= link_to "Sign out", destroy_user_session_path, method: :delete%></div>
+</div>
+<div>
+</div>
+<br>
+<div style="display: flex; justify-content: space-between;">
+    <div>
+    <label>Posts</label>
+    <% @post.each do |ava| %>
+            <div><%= link_to image_tag(ava.avatar, width: "100px", height: "200px"), post_url(ava.id), method: :get%></div>
+    <% end %>
+    </div>
+    <div style="width: 25%; height: 50%; display: block">
+        <div>Send Friend Requests</div>
+        <div><% @users.each do |user| %>
+            <li> <%= user.email%></li>
+            <%end%>
+        </div>
+    </div>
+</div>

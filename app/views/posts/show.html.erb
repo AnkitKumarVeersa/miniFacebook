@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+<div><%= image_tag(@post.avatar, width: "100px", height: "200px") %>
+    <p>Author- <%= @post.user_id%></p>
+    <p>Likes- <%= @post.likes %></p>
+</div>
+<button class="likeButton"> Like </button>
+<%= link_to 'Delete', post_url(@post.id), method: :delete%>
+<%= link_to 'Back', root_url %>
