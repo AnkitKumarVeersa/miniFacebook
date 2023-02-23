@@ -18,6 +18,7 @@
         <div>Send Friend Requests</div>
         <div><% @users.each do |user| %>
             <li> <%= user.email%></li>
+            <%= link_to 'Send Request', sendRequest_url(id: user.id) ,method: :get%> 
             <%end%>
         </div>
     </div>

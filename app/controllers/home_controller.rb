@@ -6,4 +6,11 @@ class HomeController < ActionController::Base
         @post = Post.all
         @users = User.all
     end
+
+    def sendRequest
+        id = params[:id]
+        user = User.find(id)
+        byebug
+        redirect_to root_url
+    end
 end
