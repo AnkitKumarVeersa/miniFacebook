@@ -10,7 +10,13 @@ class HomeController < ActionController::Base
     def sendRequest
         id = params[:id]
         user = User.find(id)
-        byebug
+        friend= Friend.new(first_user: current_user.id, second_user: posts_params[:id], is_friend: false)
+        friend.save
         redirect_to root_url
+    end
+
+    private 
+    def posts_params
+    params.permit(:id)
     end
 end

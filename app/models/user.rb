@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
   belongs_to :role
-  has_many :post
+  has_many :users, through: :friends
+  has_many :posts
 end
