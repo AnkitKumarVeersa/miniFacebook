@@ -2,6 +2,7 @@ class HomeController < ActionController::Base
     def index
         if(!current_user)
             redirect_to new_user_session_path
+            return
         end
         @post = Post.all
         notFriends = Friend.where(first_user: current_user.id).pluck(:second_user)+Friend.where(second_user: current_user.id).pluck(:first_user) + [current_user.id]

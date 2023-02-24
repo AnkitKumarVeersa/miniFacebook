@@ -9,9 +9,9 @@
 <br>
 <div style="display: flex; justify-content: space-between;">
     <div style="width: 40%; height: 50%; display: block">
-    <label>Posts</label>
+    <div>Posts</div>
     <% @post.each do |ava| %>
-            <div><%= link_to image_tag(ava.avatar, width: "100px", height: "200px"), post_url(ava.id), method: :get%></div>
+            <span><%= link_to image_tag(ava.avatar, width: "200px", height: "200px"), post_url(ava.id), method: :get%></span>
     <% end %>
     </div>
     <div style="width: 20%; height: 50%; display: block">
