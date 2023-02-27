@@ -5,11 +5,6 @@ class HomeController < ActionController::Base
             return
         end
         @post = Post.all
-        notFriends = Friend.where(first_user: current_user.id).pluck(:second_user)+Friend.where(second_user: current_user.id).pluck(:first_user) + [current_user.id]
-        @pendingRequests = User.find(Friend.where(second_user: current_user.id).where(is_friend: false).pluck(:first_user))
-        friend = Friend.where(first_user: current_user.id).where(is_friend: true).pluck(:second_user)+Friend.where(second_user: current_user.id).where(is_friend: true).pluck(:first_user)
-        @friends = User.find(friend)
-        @users = User.where.not(id: notFriends)
     end
 
     def sendRequest

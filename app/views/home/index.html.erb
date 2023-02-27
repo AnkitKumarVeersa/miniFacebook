@@ -1,5 +1,9 @@
 <div style="display: flex; justify-content: space-between;">
 <div><%= current_user.email%></div>
+<div><%= link_to 'Make New Friend', new_friend_url, method: :get %></div>
+<div><%= link_to 'Pending Requests', edit_friend_url(current_user.id), method: :get %></div>
+<div><%= link_to 'Friends', friends_url, method: :get %></div>
+
 <div><%= link_to "Create Post", new_post_url, method: :post%></div>
 
 <div><%= link_to "Sign out", destroy_user_session_path, method: :delete%></div>
@@ -8,34 +12,11 @@
 </div>
 <br>
 <div style="display: flex; justify-content: space-between;">
-    <div style="width: 40%; height: 50%; display: block">
-    <div>Posts</div>
+    <div style="display: block">
+    <h3>Posts</h3>
     <% @post.each do |ava| %>
             <span><%= link_to image_tag(ava.avatar, width: "200px", height: "200px"), post_url(ava.id), method: :get%></span>
     <% end %>
     </div>
-    <div style="width: 20%; height: 50%; display: block">
-        <div>Send Friend Requests</div>
-        <div><% @users.each do |user| %>
-            <li> <%= user.email%>- <%= link_to 'Send Request', sendRequest_url(id: user.id) ,method: :get%></li> 
-            <%end%>
-        </div>
-    </div>
-
-        <div style="width: 20%; height: 50%; display: block">
-        <div>Pending Friend Requests</div>
-        <div><% @pendingRequests.each do |req| %>
-            <li> <%= req.email%>- <%= link_to 'Accept', acceptRequest_url(id: req.id, accept: 1) ,method: :get%>
-            <%= link_to 'Reject', acceptRequest_url(id: req.id, accept: 0) ,method: :get%></li> 
-            <%end%>
-        </div>
-        </div>
-
-        <div style="width: 20%; height: 50%; display: block">
-        <div>Friends</div>
-        <div><% @friends.each do |friend| %>
-            <li> <%= friend.email%></li> 
-            <%end%>
-        </div>
     </div>
 </div>

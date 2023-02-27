@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friends
   resources :posts
   devise_for :users
   devise_scope :user do  
@@ -8,5 +9,6 @@ Rails.application.routes.draw do
   root to: "home#index"
   get '/sendRequest' => 'home#sendRequest'
   get '/acceptRequest' => 'home#acceptRequest'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

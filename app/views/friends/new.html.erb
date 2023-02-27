@@ -1,0 +1,7 @@
+<h3>Send Friend Requests</h3>
+<div><% @users.each do |user| %>
+    <li> <%= user.email%>- <%= link_to 'Send Request', sendRequest_url(id: user.id) ,method: :get%></li> 
+    <%end%>
+</div>
+
+<%= link_to 'Back', root_url %>
