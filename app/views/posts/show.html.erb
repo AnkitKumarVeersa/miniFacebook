@@ -5,4 +5,4 @@
 </div>
 <button class="likeButton"> Like </button>
 <%= link_to 'Delete', post_url(@post.id), method: :delete%>
-<%= link_to 'Back', root_url %>
+<%= button_to 'Back', root_url, method: :get %>

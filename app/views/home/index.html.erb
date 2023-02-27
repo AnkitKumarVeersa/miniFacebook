@@ -1,15 +1,3 @@
-<div style="display: flex; justify-content: space-between;">
-<div><%= current_user.email%></div>
-<div><%= link_to 'Make New Friend', new_friend_url, method: :get %></div>
-<div><%= link_to 'Pending Requests', edit_friend_url(current_user.id), method: :get %></div>
-<div><%= link_to 'Friends', friends_url, method: :get %></div>
-
-<div><%= link_to "Create Post", new_post_url, method: :post%></div>
-
-<div><%= link_to "Sign out", destroy_user_session_path, method: :delete%></div>
-</div>
-<div>
-</div>
 <br>
 <div style="display: flex; justify-content: space-between;">
     <div style="display: block">
