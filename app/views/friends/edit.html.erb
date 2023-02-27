@@ -2,8 +2,6 @@
 <div><% @pendingRequests.each do |req| %>
     <li> <%= req.email%>- <%= link_to 'Accept', acceptRequest_url(id: req.id, accept: 1) ,method: :post%>
     <%= link_to 'Reject', acceptRequest_url(id: req.id, accept: 0) ,method: :post%></li> 
-
-    <%= link_to 'Delete', post_url(19), method: :delete%>
     <%end%>
 </div>
 

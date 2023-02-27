@@ -4,7 +4,8 @@ class HomeController < ApplicationController
             redirect_to new_user_session_path
             return
         end
-        @post = Post.all
+        friend = Friend.where(first_user: current_user.id).where(is_friend: true).pluck(:second_user)+Friend.where(second_user: current_user.id).where(is_friend: true).pluck(:first_user)+[current_user.id]
+        @post = Post.where(user_id: friend)
     end
 
     def sendRequest
@@ -12,7 +13,7 @@ class HomeController < ApplicationController
         user = User.find(id)
         friend= Friend.new(first_user: current_user.id, second_user: posts_params[:id], is_friend: false)
         friend.save
-        redirect_to root_url
+        redirect_to new_friend_url
     end
 
     def acceptRequest
@@ -22,7 +23,7 @@ class HomeController < ApplicationController
         else
             friend.destroy
         end
-        redirect_to root_url
+        redirect_to edit_friend_url(current_user.id)
     end
 
     private 

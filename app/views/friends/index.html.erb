@@ -1,5 +1,5 @@
 <h3>Friends</h3>
 <div><% @friends.each do |friend| %>
-    <li> <%= friend.email%></li> 
+    <li> <%= friend.email%>- <%= link_to 'unfriend' , friend_url(friend.id), method: :delete%></li> 
     <%end%>
 </div>
