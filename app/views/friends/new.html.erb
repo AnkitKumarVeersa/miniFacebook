@@ -4,4 +4,8 @@
     <%end%>
 </div>
 
+<div class="flickr_pagination">
+  <%= will_paginate @users %>
+</div>
+
 <%= button_to 'Back', root_url, method: :get %>

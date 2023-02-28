@@ -14,7 +14,7 @@ class FriendsController < ApplicationController
   # GET /friends/new
   def new
     notFriends = Friend.where(first_user: current_user.id).pluck(:second_user)+Friend.where(second_user: current_user.id).pluck(:first_user) + [current_user.id]
-    @users = User.where.not(id: notFriends)
+    @users = User.where.not(id: notFriends).paginate(page: params[:page], per_page: 2)
   end
 
   # GET /friends/1/edit

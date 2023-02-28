@@ -19,6 +19,7 @@ gem "paperclip", "~> 6.0.0"
 gem "image_processing", ">= 1.2"
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'will_paginate', '~> 3.3.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
